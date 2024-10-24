@@ -45,21 +45,21 @@ const processes: Process[] = [
     icon: <FileSpreadsheet className="w-6 h-6" />,
     description: 'Automate the Investigation Documentation',
     action: 'CREATE RCA INVESTIGATION WORKBOOK',
-    recordId: 'recNewRCAPrep123',
+    recordId: 'reclsUo5Bh4GbKiN8',
   },
   {
     name: 'Root Cause Analysis',
     icon: <FileCheck className="w-6 h-6" />,
     description: 'Get to the Bottom of it',
     action: 'GENERATE RCA',
-    recordId: 'reclsUo5Bh4GbKiN8',
+    recordId: 'recgZwhznog8RWTyt',
   },
   {
     name: 'Lessons Learned',
     icon: <Zap className="w-6 h-6" />,
     description: 'Share your insights - Lead from the Front',
     action: 'GENERATE LESSON LEARNED',
-    recordId: 'recgZwhznog8RWTyt',
+    recordId: 'recyvN8KII6b9kshs',
   },
 ];
 
