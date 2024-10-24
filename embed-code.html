@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volty Field Observations Widget</title>
+  <style>
+    .volty-widget-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .volty-widget-frame {
+      width: 100%;
+      min-height: 800px;
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(17, 17, 17, 0.95));
+      transition: all 0.3s ease;
+    }
+
+    .volty-widget-frame:hover {
+      border-color: #FFA500;
+      box-shadow: 0 0 35px rgba(255, 165, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .volty-widget-container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="volty-widget-container">
+    <iframe
+      src="https://widget.volty.online/"
+      class="volty-widget-frame"
+      title="Volty Field Observations Widget"
+      allow="clipboard-write"
+    ></iframe>
+  </div>
+
+  <script>
+    (function() {
+      const iframe = document.querySelector('.volty-widget-frame');
+      
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://widget.volty.online') return;
+        
+        if (event.data.type === 'setHeight') {
+          iframe.style.height = `${event.data.height}px`;
+        }
+      }, false);
+
+      // Handle iframe resize on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          const containerWidth = iframe.parentElement.offsetWidth;
+          iframe.style.width = `${containerWidth}px`;
+        }, 250);
+      });
+
+      // Initial size adjustment
+      iframe.style.width = `${iframe.parentElement.offsetWidth}px`;
+    })();
+  </script>
+</body>
+</html>
